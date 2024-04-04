@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="m-0">{{userobj1.title}}</h1>
+                </div>
+                <div class="card-body">
+                    <p class="m-0">{{userobj1.body}}</p>
+                    <img [src]="'https://source.unsplash.com/random/?'+getcatg" alt="" class="img-fluid img1">
+
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <button class="btn btn-outline-primary" [routerLink]="['edit']">edit</button>
+                    <button class="btn btn-outline-danger" (click)="ondelte()">Delete</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <img [src]="'https://source.unsplash.com/random/?'+getcatg" alt="" class="img-fluid">
+        </div>
+    </div>
+</div>

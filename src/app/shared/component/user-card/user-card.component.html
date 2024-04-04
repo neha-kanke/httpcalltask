@@ -1,0 +1,12 @@
+
+        <div class="card bg-info text-white">
+            <div class="card-header">
+                <h1 class="m-0">{{userobj.title}}</h1>
+            </div>
+            <div class="card-body bg-light text-dark">
+                <p class="m-0">{{userobj.body}}</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-secondary" [routerLink]="['/user',userobj.userId]">View More</button>
+            </div>
+        </div>
