@@ -5,14 +5,14 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable, delay, finalize } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, delay, finalize } from 'rxjs';
 import { LoaderService } from './loader.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-
+  
   constructor(private _loaderservice:LoaderService) { }
-
+  unscripeall$:Subject<void>=new Subject<void>()
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     // this._loaderservice.loadersubject$.next(true)
     this._loaderservice.sendloadervalue.next(true)
@@ -31,6 +31,11 @@ export class AuthInterceptor implements HttpInterceptor {
         this._loaderservice.sendloadervalue.next(false)
       })
     )
-   
+
   }
+  unsscripeall(){
+    this.unscripeall$.next()
+    this.unscripeall$.complete()
+  }
+ 
 }
